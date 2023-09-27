@@ -1,2 +1,4 @@
 # TransitDataCDC
 A project using data from the MBTA API (https://api-v3.mbta.com), showcasing change data capture utilizing Debezium.
+
+This project aims to connect to the MBTA API and collect real time data on bus location for buses on Route 1, as well as implement change data capture across different databases and subsequently perform analysis and visualization of the data. To accomplish this, I wrote a Flask server in Python which connects to the MBTA API and collects data every ten seconds, storing it in a dictionary. I also created a Docker network connecting containers of a SQL database, a Mongo database, and Debezium. Once the data is stored in a dictionary, it is then inserted into the mySQL database container using a Python script, and Debezium performs change data capture anytime there is new data entered into the SQL database, storing it once again in the MongoDB container. Finally, some data analysis and visualization was performed on the transit data.
